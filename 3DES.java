@@ -4,7 +4,7 @@ import javax.crypto.SecretKey;
 import java.util.Base64;
 import java.util.Scanner;
 
-public class CryptoToolkit {
+public class 3DES {
     public static void main(String[] args) {
         try {
             Scanner sc = new Scanner(System.in);
