@@ -16,7 +16,9 @@ void main() {
 
                 switch (choice) {
                     case 1:
-                        System.out.println("1");
+                        System.out.println("=== SYMMETRIC ENCRYPTION ===");
+                        features.symmetric.AESHandler aesHandler = new features.symmetric.AESHandler();
+                        aesHandler.execute(sc);
                         break;
                     case 2:
                         System.out.println("2");
