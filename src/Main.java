@@ -1,31 +1,58 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import features.hashing.HashHandler;
+import features.symmetric.TripleDESHandler.TripleDES;
+
 void main() {
     Scanner sc = new Scanner(System.in);
 
     while (true) {
-        System.out.println("=== CRYPTOGRAPHY TOOLKIT ===");
-        System.out.println("1. Symmetric Encryption (DES, 3DES, AES)");
-        System.out.println("2. Asymmetric Encryption (RSA)");
-        System.out.println("3. Hash Functions (MD5, SHA-256)");
+        System.out.println("\n==============================");
+        System.out.println("===  CRYPTOGRAPHY TOOLKIT  ===");
+        System.out.println("==============================");
+        System.out.println("1. Symmetric: DES");
+        System.out.println("2. Symmetric: 3DES (Triple DES)");
+        System.out.println("3. Symmetric: AES");
+        System.out.println("4. Asymmetric: RSA");
+        System.out.println("5. Hash: MD5 OR SHA-256 Check");
         System.out.println("0. Exit");
-        System.out.print("Select feature group: ");
+        System.out.print("Select feature: ");
 
-        // Dùng Scanner để lấy lựa chọn từ người dùng [cite: 34]
+        // Kiểm tra đầu vào có phải số không để tránh crash
+        if (!sc.hasNextInt()) {
+            System.out.println("Loi: Vui long nhap mot con so!");
+            sc.next(); // Đọc bỏ giá trị sai
+            continue;
+        }
+
         int choice = sc.nextInt();
+        sc.nextLine();
 
-                switch (choice) {
-                    case 1:
-                        System.out.println("1");
-                        break;
-                    case 2:
-                        System.out.println("2");
-                        break;
-                    case 3:
-                        System.out.println("3");
-                        break;
-                    case 0:
-                        System.exit(0);
-                }
+        switch (choice) {
+            case 1:
+                System.out.println("\n--> Ban chon DES (Single DES)");
+                // Gọi hàm xử lý DES ở đây
+                break;
+            case 2:
+                System.out.println("\n--> Ban chon 3DES (Triple DES)");
+                TripleDES.run3DES(sc);
+                break;
+            case 3:
+                System.out.println("\n--> Ban chon AES");
+                // Implement AES logic
+                break;
+            case 4:
+                System.out.println("\n--> Ban chon RSA");
+                // Implement RSA logic
+                break;
+            case 5:
+                System.out.println("\n--> Ban chon Feature 3: Hash Functions");
+                HashHandler.runHashFeatures(sc);
+                break;
+            case 0:
+                System.out.println("Exiting program...");
+                sc.close();
+                System.exit(0);
+            default:
+                System.out.println("Lua chon khong ton tai!");
+        }
     }
 }

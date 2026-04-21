@@ -1,10 +1,9 @@
+package features.symmetric.TripleDESHandler;
 import java.security.MessageDigest;
 import java.util.Scanner;
-
 public class Crypto_MD5_Collision {
-    public static void main(String[] args) {
+    public static void checkCollision(Scanner sc) {
         try {
-            Scanner sc = new Scanner(System.in);
             System.out.println("=== KHOI TAO KIEM TRA VA CHAM MD5 ===");
             
             System.out.print("Nhap chuoi (van ban) thu 1: ");
