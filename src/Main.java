@@ -1,4 +1,5 @@
 import features.hashing.HashHandler;
+import features.symmetric.AESHandler.AESHandler;
 import features.symmetric.TripleDESHandler.TripleDES;
 
 void main() {
@@ -28,8 +29,9 @@ void main() {
 
         switch (choice) {
             case 1:
-                System.out.println("\n--> Ban chon DES (Single DES)");
-                // Gọi hàm xử lý DES ở đây
+                System.out.println("=== SYMMETRIC ENCRYPTION ===");
+                AESHandler aesHandler = new AESHandler();
+                aesHandler.execute(sc);
                 break;
             case 2:
                 System.out.println("\n--> Ban chon 3DES (Triple DES)");
