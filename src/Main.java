@@ -1,8 +1,11 @@
+import java.util.Scanner;
 import features.hashing.HashHandler;
 import features.symmetric.AESHandler.AESHandler;
+import features.symmetric.DESHandler.DES;
 import features.symmetric.TripleDESHandler.TripleDES;
 
-void main() {
+public class Main {   
+    public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
 
     while (true) {
@@ -29,9 +32,8 @@ void main() {
 
         switch (choice) {
             case 1:
-                System.out.println("=== SYMMETRIC ENCRYPTION ===");
-                AESHandler aesHandler = new AESHandler();
-                aesHandler.execute(sc);
+                System.out.println("\n--> Ban chon DES");
+                DES.runDES(sc);
                 break;
             case 2:
                 System.out.println("\n--> Ban chon 3DES (Triple DES)");
@@ -39,7 +41,8 @@ void main() {
                 break;
             case 3:
                 System.out.println("\n--> Ban chon AES");
-                // Implement AES logic
+                AESHandler aesHandler = new AESHandler();
+                aesHandler.execute(sc);
                 break;
             case 4:
                 System.out.println("\n--> Ban chon RSA");
@@ -55,6 +58,7 @@ void main() {
                 System.exit(0);
             default:
                 System.out.println("Lua chon khong ton tai!");
+            }
         }
     }
 }
