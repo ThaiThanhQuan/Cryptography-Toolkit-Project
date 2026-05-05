@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.security.KeyPair;
+import features.asymmetric.RSAHandler;
 import features.hashing.HashHandler;
 import features.symmetric.AESHandler.AESHandler;
 import features.symmetric.DESHandler.DES;
@@ -46,7 +48,31 @@ public class Main {
                 break;
             case 4:
                 System.out.println("\n--> Ban chon RSA");
-                // Implement RSA logic
+                try {
+                    // Tạo key
+                    KeyPair keyPair = RSAHandler.generateKeyPair();
+
+                    // Hiển thị khóa
+                    System.out.println("===== RSA Key Pair =====");
+                    System.out.println("Public Key: " + keyPair.getPublic());
+                    System.out.println("Private Key: " + keyPair.getPrivate());
+                    System.out.println("========================");
+
+                    // Nhập dữ liệu
+                    System.out.print("Nhập plaintext: ");
+                    String plainText = sc.nextLine();
+
+                    // Mã hóa
+                    String encrypted = RSAHandler.encrypt(plainText, keyPair.getPublic());
+                    System.out.println("Encrypted: " + encrypted);
+
+                    // Giải mã
+                    String decrypted = RSAHandler.decrypt(encrypted, keyPair.getPrivate());
+                    System.out.println("Decrypted: " + decrypted);
+                } catch (Exception e) {
+                    System.out.println("Lỗi khi thực hiện RSA: " + e.getMessage());
+                    // e.printStackTrace(); // Uncomment this line if you need to debug specific errors
+                }
                 break;
             case 5:
                 System.out.println("\n--> Ban chon Feature 3: Hash Functions");
